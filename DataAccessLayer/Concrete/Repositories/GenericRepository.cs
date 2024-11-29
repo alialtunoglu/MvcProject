@@ -26,6 +26,11 @@ namespace DataAccessLayer.Concrete.Repositories
             c.SaveChanges();
         }
 
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter); //id'si 5 olan yazarı bulmak için felan 
+        }
+
         public void Insert(T p)
         {
             _object.Add(p);
