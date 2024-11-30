@@ -5,7 +5,6 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,7 +34,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult AddCategory(Category p)
         {
             CategoryValidator categoryValidator = new CategoryValidator();
-            FluentValidation.Results.ValidationResult result = categoryValidator.Validate(p);
+            ValidationResult result = categoryValidator.Validate(p);
             if (result.IsValid)
             {
                 cm.CategoryAdd(p);

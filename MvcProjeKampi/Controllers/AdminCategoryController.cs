@@ -2,6 +2,7 @@
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace MvcProjeKampi.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        CategoryValidator categoryValidator = new CategoryValidator();
         // GET: AdminCategory
         public ActionResult Index()
         {
@@ -27,8 +29,8 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category p)
         {
-            CategoryValidator categoryValidator = new CategoryValidator();
-            FluentValidation.Results.ValidationResult result = categoryValidator.Validate(p);
+            
+            ValidationResult result = categoryValidator.Validate(p);
             if (result.IsValid)
             {
                 cm.CategoryAdd(p);
@@ -41,7 +43,7 @@ namespace MvcProjeKampi.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            return View();
+            return View(p);
         }
         public ActionResult DeleteCategory(int id)
         {
@@ -60,9 +62,21 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult EditCategory(Category p)
         {
-            cm.CategoryUpdate(p);
-            return RedirectToAction("Index");
-
+            ValidationResult result = categoryValidator.Validate(p);
+            if (result.IsValid)
+            {
+                cm.CategoryUpdate(p); 
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View(p);
+          
         }
     }
 }

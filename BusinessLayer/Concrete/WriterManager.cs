@@ -31,6 +31,10 @@ namespace BusinessLayer.Concrete
 
         public void WriterAdd(Writer writer)
         {
+            if (string.IsNullOrEmpty(writer.WriterImage))
+            {
+                writer.WriterImage = "user1-128x128.jpg";
+            }
             _writerDal.Insert(writer);
         }
 
