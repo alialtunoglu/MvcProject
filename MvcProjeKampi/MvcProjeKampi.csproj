@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -180,12 +181,16 @@
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.min.css" />
     <Content Include="AdminLTE-3.0.4\dist\img\2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\4.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\admin.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\AdminLTELogo.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\alex_pina.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\ali_altunoglu.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar04.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar3.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\avatar5.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\aziz_nesin.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\bill_gates.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\boxed-bg.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\boxed-bg.png" />
@@ -200,8 +205,12 @@
     <Content Include="AdminLTE-3.0.4\dist\img\credit\visa.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\default-150x150.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\elonmusk.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\esen_sadik.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\hakan_gunday.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\icons.png" />
+    <Content Include="AdminLTE-3.0.4\dist\img\murat_yucedag.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\namik_kemal.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\nick_vallelonga.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\nuribilge_ceylan.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\oguz_atay.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\photo1.png" />
@@ -222,6 +231,7 @@
     <Content Include="AdminLTE-3.0.4\dist\img\user6-128x128.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user7-128x128.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user8-128x128.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\vince_gilligan.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\yasar_kemal.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\js\adminlte.js" />
     <Content Include="AdminLTE-3.0.4\dist\js\adminlte.min.js" />
@@ -2310,6 +2320,8 @@
     <Content Include="Views\Writer\Index.cshtml" />
     <Content Include="Views\Writer\AddWriter.cshtml" />
     <Content Include="Views\Writer\EditWriter.cshtml" />
+    <Content Include="Views\Heading\Index.cshtml" />
+    <Content Include="Views\Heading\AddHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

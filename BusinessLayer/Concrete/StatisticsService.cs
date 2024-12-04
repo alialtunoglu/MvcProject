@@ -36,7 +36,11 @@ namespace BusinessLayer.Concrete
 
         public string GetCategoryWithMostHeadings()
         {
-            return _headingDal.List().Max(x => x.Category.CategoryName);
+            var categoryWithMostHeadings = _headingDal.List()
+            .GroupBy(x => x.Category.CategoryName)  // Kategorilere göre grupla
+            .OrderByDescending(g => g.Count())      // Başlık sayısına göre azalan sırada sırala
+            .FirstOrDefault()?.Key;
+            return categoryWithMostHeadings;
         }
 
         public int GetHeadingCountByCategoryName(string categoryName)
