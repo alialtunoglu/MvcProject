@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -70,6 +71,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult DeleteHeading(int id)
         {
             var headingValue=hm.GetById(id);
+            headingValue.HeadingStatus = !headingValue.HeadingStatus; // Durumu tersine çevir.
             hm.HeadingDelete(headingValue); 
             return RedirectToAction("Index");
         }
