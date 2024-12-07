@@ -35,15 +35,7 @@ namespace BusinessLayer.Concrete
 
         public void HeadingDelete(Heading heading)
         {
-            if (heading != null)
-            {
-                heading.HeadingStatus = !heading.HeadingStatus; // Durumu tersine çevir.
-                _headingDal.Update(heading);
-            }
-            else
-            {
-                throw new Exception("Heading not found.");
-            }
+            _headingDal.Update(heading);
         }
 
         public void HeadingUpdate(Heading heading)
