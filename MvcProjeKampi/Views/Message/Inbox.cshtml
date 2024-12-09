@@ -1,7 +1,8 @@
 ﻿@using EntityLayer.Concrete
-@model List<Contact>
+@model List<Message>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inbox";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -28,6 +29,7 @@
                 <div class="col-md-3">
                     
                     @Html.Action("RenderMailSidebar", "Contact")
+
                 </div>
                 <!-- /.col -->
                 <div class="col-md-9">
@@ -83,11 +85,12 @@
                                                         <label for="check1"></label>
                                                     </div>
                                                 </td>
-                                                <td class="mailbox-star"><a href="/Contact/GetContactDetails/@item.ContactID"><i class="fas fa-star text-warning"></i></a></td>
-                                                <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactID">@item.UserName</a></td>
+                                                <td class="mailbox-star"><a href="/Contact/GetContactDetails/@item.MessageID"><i class="fas fa-star text-warning"></i></a></td>
+                                                <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.MessageID">@item.SenderMail</a></td>
                                                 <td class="mailbox-subject">
-                                                    <b>@item.Subject</b> - @item.Message.Substring(0, 30) ...
+                                                    <b>@item.Subject</b> - @(item.MessageContent.Length > 30 ? item.MessageContent.Substring(0, 30) + "..." : item.MessageContent)
                                                 </td>
+
                                                 <td class="mailbox-attachment"></td>
                                                 <td class="mailbox-date">5 mins ago</td>
                                             </tr>
@@ -130,7 +133,8 @@
             </div>
             <!-- /.row -->
         </div>
-</section>
+    </section>
 
 </body>
 </html>
+
