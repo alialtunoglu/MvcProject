@@ -22,6 +22,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult Inbox()
         {
             var messageList = mm.GetListInbox();
+
             
             return View(messageList);
         }
@@ -87,7 +88,16 @@ namespace MvcProjeKampi.Controllers
         }
         public ActionResult GetInBoxMessageDetails(int id)
         {
+            // Şu anki mesajı al
             var messageValues = mm.GetById(id);
+
+            // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
+            var (previousId, nextId) = mm.GetPreviousAndNextMessageIds(id);
+
+            // ViewBag ile view'a gönderiyoruz
+            ViewBag.PreviousMessageId = previousId;
+            ViewBag.NextMessageId = nextId;
+
             return View(messageValues);
         }
         public ActionResult GetSendBoxMessageDetails(int id)
