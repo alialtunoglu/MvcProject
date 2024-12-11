@@ -16,5 +16,9 @@ namespace BusinessLayer.Abstract
         void MessageUpdate(Message message);
         Message GetById(int id);
         List<Message> IsDraft();
+        
+        (int? previousId, int? nextId) GetPreviousAndNextMessageIds(int currentMessageId);
+
+
     }
 }

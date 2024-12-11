@@ -27,6 +27,8 @@ namespace BusinessLayer.Concrete
         public List<Message> GetListInbox()
         {
             return _messageDal.List(x=>x.ReceiverMail=="admin@gmail.com");
+
+
         }
         public List<Message> GetListSendbox(bool isDraft=false)
         {
@@ -52,10 +54,15 @@ namespace BusinessLayer.Concrete
         {
             return _messageDal.List(m => m.IsDraft == true);
         }
-
-        public ValidationResult Validate(Message p)
+        public (int? previousId, int? nextId) GetPreviousAndNextMessageIds(int currentMessageId)
         {
-            throw new NotImplementedException();
+            var allMessages = GetListInbox().OrderBy(x => x.MessageID).ToList();
+            int currentIndex = allMessages.FindIndex(m => m.MessageID == currentMessageId);
+
+            int? previousId = currentIndex > 0 ? allMessages[currentIndex - 1].MessageID : (int?)null;
+            int? nextId = currentIndex < allMessages.Count - 1 ? allMessages[currentIndex + 1].MessageID : (int?)null;
+
+            return (previousId, nextId);
         }
     }
 }
