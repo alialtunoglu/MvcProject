@@ -85,14 +85,18 @@
                                                         <label for="check1"></label>
                                                     </div>
                                                 </td>
-                                                <td class="mailbox-star"><a href="/Contact/GetContactDetails/@item.MessageID"><i class="fas fa-star text-warning"></i></a></td>
-                                                <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.MessageID">@item.SenderMail</a></td>
+                                                <td class="mailbox-star"><a href="/Message/GetInBoxMessageDetails/@item.MessageID"><i class="fas fa-star text-warning"></i></a></td>
+                                                <td class="mailbox-name"><a href="/Message/GetInBoxMessageDetails/@item.MessageID">@item.SenderMail</a></td>
                                                 <td class="mailbox-subject">
-                                                    <b>@item.Subject</b> - @(item.MessageContent.Length > 30 ? item.MessageContent.Substring(0, 30) + "..." : item.MessageContent)
+                                                    
+                                                    <b>@item.Subject</b> -
+                                                    @(item.MessageContent.Length > 30
+                                                        ? item.MessageContent.Substring(0, 30) + "..."
+                                                        : item.MessageContent)
                                                 </td>
 
                                                 <td class="mailbox-attachment"></td>
-                                                <td class="mailbox-date">5 mins ago</td>
+                                                <td class="mailbox-date">@item.MessageDate.ToString("dd-MMM-yyyy")</td>
                                             </tr>
                                         }
                                     </tbody>
@@ -104,27 +108,30 @@
                         <!-- /.card-body -->
                         <div class="card-footer p-0">
                             <div class="mailbox-controls">
-                                <!-- Check all button -->
-                                <button type="button" class="btn btn-default btn-sm checkbox-toggle">
-                                    <i class="far fa-square"></i>
-                                </button>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
-                                </div>
-                                <!-- /.btn-group -->
-                                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
-                                <div class="float-right">
-                                    1-50/200
+                                @if (Model != null && Model.Count > 10)
+                                {
+                                    <!-- Check all button -->
+                                    <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                                        <i class="far fa-square"></i>
+                                    </button>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
-                                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                                        <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
                                     </div>
                                     <!-- /.btn-group -->
+                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                                    <div class="float-right">
+                                        1-50/200
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                                        </div>
+                                        <!-- /.btn-group -->
+                                    </div>
+                                    <!-- /.float-right -->
+                                }
                                 </div>
-                                <!-- /.float-right -->
-                            </div>
                         </div>
                     </div>
                     <!-- /.card -->

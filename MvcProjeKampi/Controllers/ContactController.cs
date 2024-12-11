@@ -37,7 +37,8 @@ namespace MvcProjeKampi.Controllers
             ViewBag.contact = contact;
             ViewBag.InboxCount = inboxCount;
             ViewBag.SendboxCount = sendboxCount;
-
+            var draftMail = mm.GetListSendbox(isDraft:true).Where(m => m.IsDraft == true).Count();
+            ViewBag.draftMail = draftMail;
 
             return PartialView();
         }
