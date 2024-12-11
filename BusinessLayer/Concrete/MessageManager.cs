@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +28,9 @@ namespace BusinessLayer.Concrete
         {
             return _messageDal.List(x=>x.ReceiverMail=="admin@gmail.com");
         }
-        public List<Message> GetListSendbox()
+        public List<Message> GetListSendbox(bool isDraft=false)
         {
-            return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com" && x.IsDraft==isDraft);
 
         }
 
@@ -46,6 +47,15 @@ namespace BusinessLayer.Concrete
         public void MessageUpdate(Message message)
         {
             _messageDal.Update(message);    
+        }
+        public List<Message> IsDraft()
+        {
+            return _messageDal.List(m => m.IsDraft == true);
+        }
+
+        public ValidationResult Validate(Message p)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -94,6 +94,14 @@
     <Compile Include="Migrations\202412091157385_mig_add_message_class.Designer.cs">
       <DependentUpon>202412091157385_mig_add_message_class.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412111025407_mig_added_isDraft_message.cs" />
+    <Compile Include="Migrations\202412111025407_mig_added_isDraft_message.Designer.cs">
+      <DependentUpon>202412111025407_mig_added_isDraft_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412111033394_mig_added_allowHtml_message.cs" />
+    <Compile Include="Migrations\202412111033394_mig_added_allowHtml_message.Designer.cs">
+      <DependentUpon>202412111033394_mig_added_allowHtml_message.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -125,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202412091157385_mig_add_message_class.resx">
       <DependentUpon>202412091157385_mig_add_message_class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412111025407_mig_added_isDraft_message.resx">
+      <DependentUpon>202412111025407_mig_added_isDraft_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412111033394_mig_added_allowHtml_message.resx">
+      <DependentUpon>202412111033394_mig_added_allowHtml_message.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
