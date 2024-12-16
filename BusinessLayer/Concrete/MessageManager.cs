@@ -54,9 +54,23 @@ namespace BusinessLayer.Concrete
         {
             return _messageDal.List(m => m.IsDraft == true);
         }
-        public (int? previousId, int? nextId) GetPreviousAndNextMessageIds(int currentMessageId)
+        public (int? previousId, int? nextId) GetPreviousAndNextMessageIds(int currentMessageId, string inboxOrSendbox)
         {
-            var allMessages = GetListInbox().OrderBy(x => x.MessageID).ToList();
+            List<Message> allMessages;
+
+            if (inboxOrSendbox == "inbox")
+            {
+                allMessages = GetListInbox().OrderBy(x => x.MessageID).ToList();
+            }
+            else if (inboxOrSendbox == "sendbox")
+            {
+                allMessages = GetListSendbox().OrderBy(x => x.MessageID).ToList();
+            }
+            else
+            {
+                throw new InvalidOperationException("Invalid inboxOrSendbox value. It must be either 'inbox' or 'sendbox'.");
+            }
+
             int currentIndex = allMessages.FindIndex(m => m.MessageID == currentMessageId);
 
             int? previousId = currentIndex > 0 ? allMessages[currentIndex - 1].MessageID : (int?)null;

@@ -92,7 +92,7 @@ namespace MvcProjeKampi.Controllers
             var messageValues = mm.GetById(id);
 
             // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
-            var (previousId, nextId) = mm.GetPreviousAndNextMessageIds(id);
+            var (previousId, nextId) = mm.GetPreviousAndNextMessageIds(id,"inbox");
 
             // ViewBag ile view'a gönderiyoruz
             ViewBag.PreviousMessageId = previousId;
@@ -103,6 +103,12 @@ namespace MvcProjeKampi.Controllers
         public ActionResult GetSendBoxMessageDetails(int id)
         {
             var messageValues = mm.GetById(id);
+
+            // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
+            var (previousId, nextId) = mm.GetPreviousAndNextMessageIds(id,"sendbox");
+            // ViewBag ile view'a gönderiyoruz
+            ViewBag.PreviousMessageId = previousId;
+            ViewBag.NextMessageId = nextId;
 
             return View(messageValues);
         }
