@@ -34,16 +34,34 @@
                         <div class="card-header">
                             <h3 class="card-title">Maili Oku</h3>
                             <div class="card-tools">
-                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Previous"><i class="fas fa-chevron-left"></i></a>
-                                <a href="#" class="btn btn-tool" data-toggle="tooltip" title="Next"><i class="fas fa-chevron-right"></i></a>
+                                @if (ViewBag.PreviousMessageId != null)
+                                {
+                                    <a href="/Message/GetSendBoxMessageDetails/@ViewBag.PreviousMessageId" class="btn btn-tool" data-toggle="tooltip" title="Önceki"><i class="fas fa-chevron-left"></i></a>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-tool" disabled><i class="fas fa-chevron-left"></i></button>
+                                }
+
+                                @if (ViewBag.NextMessageId != null)
+                                {
+                                    <a href="/Message/GetSendBoxMessageDetails/@ViewBag.NextMessageId" class="btn btn-tool" data-toggle="tooltip" title="Sonraki"><i class="fas fa-chevron-right"></i></a>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-tool" disabled><i class="fas fa-chevron-right"></i></button>
+                                }
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="mailbox-read-info">
-                                <h5>Konu : @Html.DisplayFor(m => m.Subject)</h5>
+                                <h5>
+                                    Konu: @Model.Subject
+                                    <span style="color: #7d7d7d;"> - <em>@Model.SenderMail</em></span>
+                                </h5>
                                 <h6>
-                                    Mail: @Html.DisplayFor(m => m.SenderMail)
+                                    Alıcı: @Html.DisplayFor(m => m.ReceiverMail)
                                     <span class="mailbox-read-time float-right">@Model.MessageDate.ToString("dd-MMM-yyyy")</span>
                                 </h6>
                             </div>

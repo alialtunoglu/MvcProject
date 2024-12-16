@@ -17,7 +17,7 @@ namespace BusinessLayer.Abstract
         Message GetById(int id);
         List<Message> IsDraft();
         
-        (int? previousId, int? nextId) GetPreviousAndNextMessageIds(int currentMessageId);
+        (int? previousId, int? nextId) GetPreviousAndNextMessageIds(int currentMessageId,string inboxOrSendbox);
 
 
     }

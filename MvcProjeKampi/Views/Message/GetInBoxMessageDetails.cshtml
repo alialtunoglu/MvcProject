@@ -58,9 +58,13 @@
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="mailbox-read-info">
-                                <h5>Konu: @Model.Subject</h5>
+                                <h5>
+                                    Konu: @Model.Subject
+                                    <span style="color: #7d7d7d;"> - <em>@Model.SenderMail</em></span>
+                                </h5>
+
                                 <h6>
-                                    Mail: @Model.SenderMail
+                                    Alıcı: @Model.ReceiverMail
                                     <span class="mailbox-read-time float-right">@Model.MessageDate.ToString("dd-MMM-yyyy")</span>
                                 </h6>
                             </div>

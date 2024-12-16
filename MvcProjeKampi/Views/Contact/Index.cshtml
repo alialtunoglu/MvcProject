@@ -73,9 +73,8 @@
                             <div class="table-responsive mailbox-messages">
                                 <table class="table table-hover table-striped">
                                     <tbody>
-                                        @foreach (var item in Model)
+                                        @foreach (var item in Model.OrderByDescending(c => c.ContactDate))
                                         {
-
                                             <tr>
                                                 <td>
                                                     <div class="icheck-primary">
@@ -89,7 +88,7 @@
                                                     <b>@item.Subject</b> - @item.Message.Substring(0, 30) ...
                                                 </td>
                                                 <td class="mailbox-attachment"></td>
-                                                <td class="mailbox-date">5 mins ago</td>
+                                                <td class="mailbox-date">@item.ContactDate.ToString("dd-MMM-yyyy")</td>
                                             </tr>
                                         }
                                     </tbody>

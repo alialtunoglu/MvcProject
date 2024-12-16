@@ -102,6 +102,10 @@
     <Compile Include="Migrations\202412111033394_mig_added_allowHtml_message.Designer.cs">
       <DependentUpon>202412111033394_mig_added_allowHtml_message.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412161108316_mig_contactadddate.cs" />
+    <Compile Include="Migrations\202412161108316_mig_contactadddate.Designer.cs">
+      <DependentUpon>202412161108316_mig_contactadddate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -139,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202412111033394_mig_added_allowHtml_message.resx">
       <DependentUpon>202412111033394_mig_added_allowHtml_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412161108316_mig_contactadddate.resx">
+      <DependentUpon>202412161108316_mig_contactadddate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
