@@ -1,15 +1,19 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MvcProjeKampi.Controllers
 {
     public class LoginController : Controller
     {
+        AdminLoginManager alm = new AdminLoginManager(new EfAdminDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -19,18 +23,18 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult Index(Admin p)
         {
-            Context c = new Context();
-            var adminuserinfo = c.Admins.FirstOrDefault(x => x.AdminUserName == p.AdminUserName && x.AdminPassword == p.AdminPassword);
-            if (adminuserinfo != null)
+            // Kullanıcı doğrulama işlemi
+            if (alm.ValidateAdmin(p.AdminUserName, p.AdminPassword))
             {
+                FormsAuthentication.SetAuthCookie(p.AdminUserName, false);
+                Session["AdminUserName"] = p.AdminUserName; // Oturum açma işlemi
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
             {
-                return RedirectToAction("Index");
-
+                ViewBag.ErrorMessage = "Kullanıcı adı veya şifre hatalı.";
+                return View();
             }
-            return View();
         }
     }
 }

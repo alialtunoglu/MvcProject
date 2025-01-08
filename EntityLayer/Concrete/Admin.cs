@@ -13,7 +13,7 @@ namespace EntityLayer.Concrete
         public int AdminID{ get; set; }
         [StringLength(50)]
         public string AdminUserName{ get; set; }
-        [StringLength(50)]
+        [StringLength(100)]
         public string AdminPassword{ get; set; }
         [StringLength(1)]
         public string AdminRole { get; set; }
