@@ -4,12 +4,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<!DOCTYPE html>
-<html>
-
-<body class="hold-transition sidebar-mini">
-
     <!-- Content Wrapper. Contains page content -->
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -26,7 +20,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
-                    
+
                     @Html.Action("RenderMailSidebar", "Contact")
                 </div>
                 <!-- /.col -->
@@ -129,7 +123,5 @@
             </div>
             <!-- /.row -->
         </div>
-</section>
-
-</body>
-</html>
+    </section>
+  

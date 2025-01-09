@@ -42,5 +42,20 @@ namespace BusinessLayer.Concrete
         {
             return _contactDal.List();
         }
+        public (int? previousId, int? nextId) GetPreviousAndNextMessageIds(int currentMessageId)
+        {
+            List<Contact> allMessages;
+
+
+            allMessages = GetList().OrderBy(x => x.ContactID).ToList();
+            
+          
+            int currentIndex = allMessages.FindIndex(m => m.ContactID == currentMessageId);
+
+            int? previousId = currentIndex > 0 ? allMessages[currentIndex - 1].ContactID : (int?)null;
+            int? nextId = currentIndex < allMessages.Count - 1 ? allMessages[currentIndex + 1].ContactID : (int?)null;
+
+            return (previousId, nextId);
+        }
     }
 }

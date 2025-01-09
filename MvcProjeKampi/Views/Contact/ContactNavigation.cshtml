@@ -1,0 +1,29 @@
+﻿@model MvcProjeKampi.ViewModels.MessageNavigationViewModel
+
+<div class="card-tools">
+    @if (Model.PreviousMessageId != null)
+    {
+        <a href="@Model.PreviousMessageId" class="btn btn-tool" data-toggle="tooltip" title="Daha Yeni">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+    }
+    else
+    {
+        <button class="btn btn-tool" disabled>
+            <i class="fas fa-chevron-left"></i>
+        </button>
+    }
+
+    @if (Model.NextMessageId != null)
+    {
+        <a href="@Model.NextMessageId" class="btn btn-tool" data-toggle="tooltip" title="Daha Eski">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    }
+    else
+    {
+        <button class="btn btn-tool" disabled>
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    }
+</div>

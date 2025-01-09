@@ -58,6 +58,7 @@ namespace BusinessLayer.Concrete
         {
             List<Message> allMessages;
 
+            Console.WriteLine($"inboxOrSendbox değeri: {inboxOrSendbox}");
             if (inboxOrSendbox == "inbox")
             {
                 allMessages = GetListInbox().OrderBy(x => x.MessageID).ToList();

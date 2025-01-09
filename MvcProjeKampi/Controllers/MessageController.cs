@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using MvcProjeKampi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -92,11 +93,9 @@ namespace MvcProjeKampi.Controllers
             var messageValues = mm.GetById(id);
 
             // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
-            var (previousId, nextId) = mm.GetPreviousAndNextMessageIds(id,"inbox");
-
-            // ViewBag ile view'a gönderiyoruz
-            ViewBag.PreviousMessageId = previousId;
-            ViewBag.NextMessageId = nextId;
+            MessageNavigation(id,"inbox");
+            
+            
 
             return View(messageValues);
         }
@@ -105,11 +104,9 @@ namespace MvcProjeKampi.Controllers
             var messageValues = mm.GetById(id);
 
             // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
-            var (previousId, nextId) = mm.GetPreviousAndNextMessageIds(id,"sendbox");
-            // ViewBag ile view'a gönderiyoruz
-            ViewBag.PreviousMessageId = previousId;
-            ViewBag.NextMessageId = nextId;
 
+            MessageNavigation(id, "sendbox");
+            
             return View(messageValues);
         }
         public ActionResult GetDraftDetails(int id)
@@ -121,6 +118,18 @@ namespace MvcProjeKampi.Controllers
         {
             var result = mm.IsDraft();
             return View(result);
+        }
+        public PartialViewResult MessageNavigation(int id,string messageType)
+        {
+            
+            var (previousId, nextId) = mm.GetPreviousAndNextMessageIds(id,messageType);
+
+            var navigationModel = new MessageNavigationViewModel
+            {
+                PreviousMessageId = previousId,
+                NextMessageId = nextId
+            };
+            return PartialView("MessageNavigation", navigationModel);
         }
 
     }

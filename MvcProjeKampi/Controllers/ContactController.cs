@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
+using MvcProjeKampi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,24 +24,37 @@ namespace MvcProjeKampi.Controllers
         public ActionResult GetContactDetails(int id )
         {
             var contactValues = cm.GetById(id);
+            // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
+            ContactNavigation(id);
+
             return View(contactValues);
         }
         public PartialViewResult RenderMailSidebar()
         {
-            var contact = cm.GetList().Count();
+            var viewModel = new MailSidebarViewModel
+            {
+                ContactCount = cm.GetList().Count(),
+                InboxCount = mm.GetListInbox().Count(),
+                SendboxCount = mm.GetListSendbox().Count(),
+                DraftMailCount = mm.GetListSendbox(isDraft: true).Count(),
+                SpamCount=65
+
+            };
+
+            // RenderMailSidebar Partial View'ini döndür.
+            return PartialView("RenderMailSidebar", viewModel); // RenderMailSidebar adı burada kullanılır
+        }
+        public PartialViewResult ContactNavigation(int id)
+        {
+            var (previousId, nextId) = cm.GetPreviousAndNextMessageIds(id);
             
-            var messageListIn = mm.GetListInbox();
-            var inboxCount = messageListIn.Count();
+            var navigationModel = new MessageNavigationViewModel
+            {
+                PreviousMessageId = previousId,
+                NextMessageId = nextId
+            };
 
-            var messageListSend = mm.GetListSendbox();
-            var sendboxCount = messageListSend.Count();
-            ViewBag.contact = contact;
-            ViewBag.InboxCount = inboxCount;
-            ViewBag.SendboxCount = sendboxCount;
-            var draftMail = mm.GetListSendbox(isDraft:true).Where(m => m.IsDraft == true).Count();
-            ViewBag.draftMail = draftMail;
-
-            return PartialView();
+            return PartialView("ContactNavigation", navigationModel);
         }
     }
 }

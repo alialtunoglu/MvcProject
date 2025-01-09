@@ -1,24 +1,29 @@
-﻿﻿@model EntityLayer.Concrete.Message
+﻿@model EntityLayer.Concrete.Message
 
 @{
     ViewBag.Title = "NewMessage";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<!-- Sayfaya özel stiller -->
+
+
+
+
 @section styles {
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.css">
 }
-
-<!-- Sayfaya özel scriptler -->
 @section scripts {
     <script src="~/AdminLTE-3.0.4/plugins/summernote/summernote.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
     <script>
         $(function () {
             //Add text editor
             $('#compose-textarea').summernote()
-        });
+        })
     </script>
 }
+
+
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -34,7 +39,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-
                 @Html.Action("RenderMailSidebar", "Contact")
             </div>
             <!-- /.col -->
@@ -88,5 +92,5 @@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </section>
-
-
+<!-- /.content -->
+<!-- /.content-wrapper -->
