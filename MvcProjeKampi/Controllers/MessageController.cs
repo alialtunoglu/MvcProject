@@ -92,10 +92,7 @@ namespace MvcProjeKampi.Controllers
             // Şu anki mesajı al
             var messageValues = mm.GetById(id);
 
-            // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
-            MessageNavigation(id,"inbox");
-            
-            
+          
 
             return View(messageValues);
         }
@@ -103,9 +100,6 @@ namespace MvcProjeKampi.Controllers
         {
             var messageValues = mm.GetById(id);
 
-            // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
-
-            MessageNavigation(id, "sendbox");
             
             return View(messageValues);
         }
@@ -129,7 +123,7 @@ namespace MvcProjeKampi.Controllers
                 PreviousMessageId = previousId,
                 NextMessageId = nextId
             };
-            return PartialView("MessageNavigation", navigationModel);
+            return PartialView(navigationModel);
         }
 
     }

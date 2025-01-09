@@ -30,7 +30,7 @@
                     <div class="card card-primary card-outline">
                         <div class="card-header">
                             <h3 class="card-title">Maili Oku</h3>
-                            @Html.Action("MessageNavigation", "Message")
+                            @Html.Action("MessageNavigation", "Message", new { id = Model.MessageID, messageType = "sendbox" })
 
                         </div>
                         <!-- /.card-header -->

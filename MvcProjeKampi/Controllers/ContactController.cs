@@ -25,7 +25,6 @@ namespace MvcProjeKampi.Controllers
         {
             var contactValues = cm.GetById(id);
             // Business Layer'daki GetPreviousAndNextMessageIds metodu çağrılıyor
-            ContactNavigation(id);
 
             return View(contactValues);
         }
@@ -42,7 +41,7 @@ namespace MvcProjeKampi.Controllers
             };
 
             // RenderMailSidebar Partial View'ini döndür.
-            return PartialView("RenderMailSidebar", viewModel); // RenderMailSidebar adı burada kullanılır
+            return PartialView(viewModel); // RenderMailSidebar adı burada kullanılır
         }
         public PartialViewResult ContactNavigation(int id)
         {
@@ -54,7 +53,7 @@ namespace MvcProjeKampi.Controllers
                 NextMessageId = nextId
             };
 
-            return PartialView("ContactNavigation", navigationModel);
+            return PartialView(navigationModel);
         }
     }
 }
