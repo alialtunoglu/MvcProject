@@ -147,6 +147,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\TalentController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -339,6 +340,7 @@
     <Content Include="AdminLTE-3.0.4\docs\_layouts\post.html" />
     <Content Include="AdminLTE-3.0.4\Images\amsterdam.jpg" />
     <Content Include="AdminLTE-3.0.4\Images\berlin.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\img1.jpg" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />
     <Content Include="AdminLTE-3.0.4\index3.html" />
@@ -2030,6 +2032,16 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
+    <Content Include="AdminLTE-3.0.4\web1\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\web1\images\5.jpg" />
+    <Content Include="AdminLTE-3.0.4\web1\images\img1.jpg" />
+    <Content Include="AdminLTE-3.0.4\web1\images\sprite.png" />
+    <Content Include="AdminLTE-3.0.4\web1\index.html" />
+    <Content Include="AdminLTE-3.0.4\web1\js\bars.js" />
+    <Content Include="AdminLTE-3.0.4\web1\js\easyResponsiveTabs.js" />
+    <Content Include="AdminLTE-3.0.4\web1\js\jquery-1.11.1.min.js" />
+    <Content Include="AdminLTE-3.0.4\web1\js\jquery.circlechart.js" />
+    <Content Include="AdminLTE-3.0.4\web1\w3layouts-License.txt" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -2471,6 +2483,10 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Contact\ContactNavigation.cshtml" />
     <Content Include="Views\Message\MessageNavigation.cshtml" />
+    <Content Include="Views\Talent\Index.cshtml" />
+    <Content Include="Views\Talent\TalentCard.cshtml" />
+    <Content Include="Views\Talent\AddTalent.cshtml" />
+    <Content Include="Views\Talent\UpdateTalent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -60,6 +60,7 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202411301333327_mig_writer_edit.cs" />
     <Compile Include="Migrations\202411301333327_mig_writer_edit.Designer.cs">
@@ -126,6 +128,10 @@
     <Compile Include="Migrations\202501171240182_mig_abouts_update_status.Designer.cs">
       <DependentUpon>202501171240182_mig_abouts_update_status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202501171253597_mig_added_talent_card.cs" />
+    <Compile Include="Migrations\202501171253597_mig_added_talent_card.Designer.cs">
+      <DependentUpon>202501171253597_mig_added_talent_card.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202501171240182_mig_abouts_update_status.resx">
       <DependentUpon>202501171240182_mig_abouts_update_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501171253597_mig_added_talent_card.resx">
+      <DependentUpon>202501171253597_mig_added_talent_card.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
