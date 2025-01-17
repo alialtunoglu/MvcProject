@@ -122,6 +122,10 @@
     <Compile Include="Migrations\202501081640572_mig_admin_password_leng.Designer.cs">
       <DependentUpon>202501081640572_mig_admin_password_leng.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202501171240182_mig_abouts_update_status.cs" />
+    <Compile Include="Migrations\202501171240182_mig_abouts_update_status.Designer.cs">
+      <DependentUpon>202501171240182_mig_abouts_update_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202501081640572_mig_admin_password_leng.resx">
       <DependentUpon>202501081640572_mig_admin_password_leng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501171240182_mig_abouts_update_status.resx">
+      <DependentUpon>202501171240182_mig_abouts_update_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
