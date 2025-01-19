@@ -150,6 +150,7 @@
     <Compile Include="Controllers\TalentController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
+    <Compile Include="Controllers\WriterPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2487,6 +2488,9 @@
     <Content Include="Views\Talent\TalentCard.cshtml" />
     <Content Include="Views\Talent\AddTalent.cshtml" />
     <Content Include="Views\Talent\UpdateTalent.cshtml" />
+    <Content Include="Views\Shared\_WriterLayout.cshtml" />
+    <Content Include="Views\WriterPanel\WriterProfile.cshtml" />
+    <Content Include="Views\WriterPanel\MyHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
